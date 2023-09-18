@@ -4,5 +4,13 @@ Microsoft-Windows-WinRM%4Operational.evtx - 6 WSMan session out <dest hostname>;
 Microsoft-Windows-RemoteDesktopService-RdpCoreTs - 131 New TCP connection from <source IP> and <username> (connection in)
 TerminalServices-RemoteConnectionManager - 1149 RDP authentication sucessful from <source IP> and <username>
 TerminalServices-LocalSessionManager - 21 - RDP logon sucessful from <source IP> and <source username> 
-System - 7045 - service install PSExeSvc/Cobalt Strike 
+System - 7045 - service install PSExeSvc
 Security - 4624 - Account Login; 4648 - Attemptd login using RunAs/Explicit creds; 4672 - special privileges assigned to new login; 4776 - login with NTLM instead of Kerberos; 4778 - session was reconnected; 5140 - networkshare was accessed; 5145 - network share was checked if it could be accessed 
+
+HKCU\Software\Microsoft\Terminal Server Client
+\Servers - subkeys include remote system accessed via RDP 
+\Default - contain remote systems acccessed via RDP. Value name MRU<int> suggests access order with MRU0 being latest 
+
+HKCU\Network\ - subkeys include drive letters of mapped shares (RemotePath value includes the mapped shares) 
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer - MountPoints 2 - Subkeys include remote share mounted/mapped on source system; Map Network Drive MRU - MRU list suggest order of mapped drives from latest to earliers; RunMRU - data contains mapped remote shares
