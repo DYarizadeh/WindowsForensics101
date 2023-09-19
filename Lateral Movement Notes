@@ -30,6 +30,16 @@ systemidenity.mdb - contains roles assigned to the system
 
 
 
+Remote access tools - 
+Teamviewer 
+Anydesk 
+WinSCP - ntuser.dat\software\Martin Prikryl\WinSCP 2\*
+SSH Access - OpenSSH Event log - OpenSSH%4Operational.evtx 
+Altera - HKLM\Software\Atera Networks\AlphaAgent\**
+Putty - ntuser.dat\software\SimonTatham\Putty\SshHostKeys
+Splashtop - HKLM\Software\WOW6432Node\Splashtop Inc.\Splashtop Remote Server\ClientInfo (also check Application.evtx)
+ScreenConnect/ConnectWise - Application.evtx - not very verbose, just says there was a connection 
+
 
 
 
