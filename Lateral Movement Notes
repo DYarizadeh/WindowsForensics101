@@ -13,4 +13,23 @@ HKCU\Software\Microsoft\Terminal Server Client
 
 HKCU\Network\ - subkeys include drive letters of mapped shares (RemotePath value includes the mapped shares) 
 
-HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer - MountPoints 2 - Subkeys include remote share mounted/mapped on source system; Map Network Drive MRU - MRU list suggest order of mapped drives from latest to earliers; RunMRU - data contains mapped remote shares
+HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer - MountPoints 2 - Subkeys include remote share mounted/mapped on source system; Map Network Drive MRU - MRU list suggest order of mapped drives from latest to earliers; RunMRU - data contains mapped remote shares;TypedPaths - may contain data regarding remote shares access via explorer 
+
+Shellbags - Interacting with shares in Explorer Window
+Ntuser.dat\software\microsoft\windows\shell\bagmru\*
+UsrClass.dat\Local Settings\Software\Microsoft\Windows\Shell\Bagmru\**
+---Destination hostname\IP of network share along with username
+
+C:\users\*\appdata\roaming\microsoft\windows\recent\*.lnk - can contain destination hostname/IP of network share accessed via shortcut file along w/ username
+
+User Access Logs - Server 2012+ - Can show what user accessed the server from 1+ week out (server logs sometimes turnsover quickly, so this can be somewhere to check) 
+C:\Windows\System32\LogFiles\SUM\*.mdb
+current.mdb - remote access from source system including username and type of access
+systemidenity.mdb - contains roles assigned to the system 
+<GUID>.mdb - contains data up to 2 years prior; Different GUID for file server, remote server, webserver, and FTP server 
+
+
+
+
+
+
