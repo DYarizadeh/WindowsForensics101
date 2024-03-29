@@ -1,0 +1,22 @@
+#######################################################################################################################################################################################################################################################
+The Protected Users security group in Active Directory is a feature designed to provide additional protections for high-value accounts by reducing the attack surface that can be exploited by attackers. 
+Adding user accounts to the Protected Users group subjects them to a number of security restrictions and controls that are harder for attackers to overcome. Here are some of the key protections applied to members of the Protected Users group:
+
+No NTLM Authentication: Members of the Protected Users group cannot authenticate using NTLM, a less secure authentication protocol. This helps to prevent attacks that rely on NTLM vulnerabilities or relay attacks.
+
+No DES or RC4 Encryption in Kerberos Pre-Authentication: These older encryption types are considered less secure. Users in the Protected Users group are required to use stronger encryption algorithms for Kerberos pre-authentication, such as AES.
+
+No Kerberos TGT Longer than 4 Hours: The Ticket-Granting Ticket (TGT) lifetime is limited to 4 hours for members of the Protected Users group, reducing the time an attacker has to use a compromised ticket.
+
+No Cached Credentials: Credentials of Protected Users are not cached, so even if a device is compromised, the attacker cannot use the cached credentials to authenticate as the user. 
+This is particularly important for protecting against attacks on devices that are offline or have been stolen.
+
+#######################################################################################################################################################################################################################################################
+Enable Restricted Admin Mode for RDP: When you use RDP with Restricted Admin Mode, the user's credentials are not sent to the remote system being accessed. 
+Instead, the system uses the credentials of the user who is already logged on to the initiating system. This reduces the risk of credentials being harvested from the remote system's memory.
+
+Use Remote Credential Guard: Remote Credential Guard protects Remote Desktop credentials by redirecting Kerberos requests back to the device that initiated the connection. 
+It helps to secure the RDP session by ensuring that credentials are not stored on the remote server. This feature requires Windows 10 (version 1607) or later and Windows Server 2016 or later.
+
+Implement Network Level Authentication (NLA): NLA requires the connecting user to authenticate before establishing a full RDP session. 
+This reduces the risk of credentials being stolen from memory because it minimizes the time the credentials are exposed on the remote system.
