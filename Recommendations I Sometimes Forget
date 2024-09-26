@@ -18,5 +18,8 @@ Instead, the system uses the credentials of the user who is already logged on to
 Use Remote Credential Guard: Remote Credential Guard protects Remote Desktop credentials by redirecting Kerberos requests back to the device that initiated the connection. 
 It helps to secure the RDP session by ensuring that credentials are not stored on the remote server. This feature requires Windows 10 (version 1607) or later and Windows Server 2016 or later.
 
+Use Credential Guard: Credential Guard is a Windows security feature designed to protect credentials stored on a local machine. It uses virtualization-based security (VBS) to isolate secrets like NTLM hashes, Kerberos tickets, and credentials from the rest of the operating system, making it harder for malware or attackers to extract them.
+How it works: It isolates the Local Security Authority Subsystem Service (LSASS), which is responsible for handling sensitive credential data, in a protected area of memory. This prevents common attacks like Pass-the-Hash or Pass-the-Ticket, where attackers try to steal credentials directly from the machine.
+
 Implement Network Level Authentication (NLA): NLA requires the connecting user to authenticate before establishing a full RDP session. 
 This reduces the risk of credentials being stolen from memory because it minimizes the time the credentials are exposed on the remote system.
